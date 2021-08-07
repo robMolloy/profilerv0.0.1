@@ -1,0 +1,6 @@
+node_modules
+.vscode
+.quasar
+
+src-cordova
+package-lock.json
