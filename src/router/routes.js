@@ -6,7 +6,7 @@ import PageProfiles from "src/pages/PageProfiles";
 import PageCssTest from "src/pages/tests/CssTest.vue";
 // import SyncTestParent from "src/pages/tests/sync/SyncTestParent.vue";
 // import SyncTestParent from "src/pages/tests/sync2/SyncTestParent.vue";
-import SyncTestParent from "src/pages/tests/syncBool/SyncTestParent.vue";
+import TestPage from "src/pages/tests/image-carousel/PageImageCarousel";
 
 const routes = [
   {
@@ -14,7 +14,7 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { name: "PageIndex", path: "", component: PageIndex },
-      { name: "PageTest", path: "test", component: SyncTestParent },
+      { name: "PageTest", path: "test", component: TestPage },
       // { name: "PageTest", path: "test", component: PageCssTest },
       {
         name: "PageAuth",

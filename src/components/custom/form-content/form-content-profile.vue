@@ -20,6 +20,11 @@
       v-model="formData.title"
     />
 
+    <rm-hashtag-input
+      label="Hashtags"
+      v-model="formData.hashtags"
+    />
+
     <q-select
       label="Hashtags"
       ref="hashtagInput"
@@ -41,11 +46,10 @@
       clearable
       :rules="[(val)=>Array.isArray(val) && val.length || 'arrayLength 0']"
     >
-      <!-- @new-value="pushHashtagFromInput" -->
       <template v-slot:selected-item="item">
         <q-chip
           removable
-          @remove="formData.hashtags.splice(item.index,1)"
+          @remove="removeHashtag(item.index)"
           dense
         >
           {{`#${item.opt}`}}
@@ -83,6 +87,9 @@ export default {
       const isOther = Object.values(other).includes(e.keyCode);
 
       if (!isLowerLetter && !isUpperLetter && !isOther) e.preventDefault();
+    },
+    removeHashtag(index) {
+      this.componentValue.splice(index, 1);
     }
   },
   created() {

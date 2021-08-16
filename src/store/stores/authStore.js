@@ -36,16 +36,17 @@ const mutations = {
 const actions = {
   async onUserAuthenticated({ commit, dispatch }) {
     let error;
-    // uid not yet set - use firebaseAuth
-    // const uid = getters.uid;
     const uid = firebaseAuth.currentUser.uid;
     const user = await fetchUserById(uid).catch(e => (error = e));
 
     if (!error) {
       commit("setData", user);
+
       dispatch("users/initListener", null, { root: true });
       dispatch("messages/initListener", null, { root: true });
       dispatch("profiles/initListener", null, { root: true });
+      dispatch("images/initListener", null, { root: true });
+
       dispatch("intervalUserIsActive");
     }
     // TODO: Prep for error

@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: "RmInput",
   props: {
     type: { default: () => "text" },
     rules: { default: () => [] },

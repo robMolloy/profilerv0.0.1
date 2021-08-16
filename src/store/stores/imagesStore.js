@@ -1,7 +1,7 @@
 import Store from "./__Store";
 
 const store = new Store({
-  dbName: "profiles",
+  dbName: "images",
   own: false
 });
 

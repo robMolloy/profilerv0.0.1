@@ -1,5 +1,6 @@
 import cloneDeep from "lodash/cloneDeep";
 import { index, join, group } from "../../utils/indexer";
+import firestoreUtilsDefault from "../../utils/firestore/__FirestoreUtilsDefault";
 
 class Store {
   constructor(props) {
@@ -9,7 +10,7 @@ class Store {
       own = true,
       requiresAuthentication = true,
       where = [],
-      utils
+      utils = new firestoreUtilsDefault(dbName)
     } = props;
 
     this.initData = cloneDeep(initData);

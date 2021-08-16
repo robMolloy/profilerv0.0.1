@@ -3,7 +3,10 @@ import RmButtonColor from "src/components/generic/button/RmButtonColor.vue";
 import RmButtonText from "src/components/generic/button/RmButtonText.vue";
 import RmButtonSubmit from "src/components/generic/button/RmButtonSubmit.vue";
 
+import RmHashtagInput from "src/components/generic/form/typeInput/RmHashtagInput.vue";
+
 import RmInput from "src/components/generic/form/RmInput.vue";
+import RmImageCarousel from "src/components/generic/form/RmImageCarousel.vue";
 import RmForm from "src/components/generic/form/RmForm.vue";
 import RmRowButtons from "src/components/generic/form/RmRowButtons.vue";
 import RmUploader from "src/components/generic/form/RmUploader.vue";
@@ -25,6 +28,9 @@ export default async ({ Vue }) => {
   Vue.component("RmButtonText", RmButtonText);
   Vue.component("RmButtonSubmit", RmButtonSubmit);
 
+  Vue.component("RmHashtagInput", RmHashtagInput);
+
+  Vue.component("RmImageCarousel", RmImageCarousel);
   Vue.component("RmInput", RmInput);
   Vue.component("RmForm", RmForm);
   Vue.component("RmRowButtons", RmRowButtons);
