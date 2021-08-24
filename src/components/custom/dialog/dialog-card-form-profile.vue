@@ -1,10 +1,10 @@
 <template>
-  <rm-dialog-card>
+  <rm-customisable-title titleType="fred">
     <template v-slot:title>
       add profile
     </template>
     <form-profile @success="$emit('success')" />
-  </rm-dialog-card>
+  </rm-customisable-title>
 </template>
 
 <script>
@@ -17,7 +17,8 @@ export default {
     onUpdate() {
       this.$emit("input", this.value);
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 

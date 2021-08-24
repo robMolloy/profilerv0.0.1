@@ -5,9 +5,9 @@
     persistent
   >
     <q-card style="width:500px">
-      <rm-dialog-title>
+      <rm-card-title>
         {{ title }}
-      </rm-dialog-title>
+      </rm-card-title>
       <slot></slot>
     </q-card>
   </q-dialog>
@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import RmDialogTitle from "./RmDialogTitle.vue";
+import RmCardTitle from "../card/RmCardTitle.vue";
+
 export default {
   name: "rm-dialog",
   props: {
@@ -23,7 +24,7 @@ export default {
     value: { default: () => true }
   },
   components: {
-    RmDialogTitle
+    RmCardTitle
   },
   data: () => ({
     childValue: false,

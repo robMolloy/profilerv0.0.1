@@ -25,12 +25,10 @@ export default {
   },
   methods: {
     onUpdate() {
-      console.log(231);
       this.$emit("input", this.value);
     }
   },
   mounted() {
-    console.log(/*LL*/ 0, "this.show", this.show);
     this.value = this.show;
   }
 };

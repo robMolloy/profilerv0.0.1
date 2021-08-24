@@ -18,7 +18,7 @@
     outlined
     class="q-mb-sm"
     clearable
-    :rules="[(val)=>Array.isArray(val) && !!val.length || 'arrayLength 0']"
+    :rules="[xItemsOrMore.bind(this, 1)]"
   >
     <template v-slot:selected-item="item">
       <q-chip
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { xItemsOrMore } from "../../../../utils/vueValid9/rules";
+
 export default {
   name: "RmHashtagInput",
 
@@ -42,6 +44,7 @@ export default {
   },
 
   data: () => ({
+    xItemsOrMore,
     componentValue: []
   }),
 

@@ -1,7 +1,15 @@
 <template>
-  <div class="q-pa-md">
+  <rm-card class="q-my-md">
+    <rm-card-subtitle>
+      {{ label }}
+
+      <template v-slot:right>
+        asdasdds
+      </template>
+    </rm-card-subtitle>
     <q-carousel
-      v-model="childValue"
+      ref="component"
+      v-model="componentValue"
       animated
       swipeable
       thumbnails
@@ -19,7 +27,7 @@
         :img-src="imageUrl"
       />
     </q-carousel>
-  </div>
+  </rm-card>
 </template>
 
 <script>
@@ -29,13 +37,21 @@ export default {
   props: {
     images: {
       default: () => ({}),
-      required: true
+      required: true,
+      type: Object
     },
-    value: { required: true }
+    value: { required: true },
+    label: { default: () => "Pick An Image" }
   },
 
   data() {
-    return { childValue: null };
+    return { componentValue: null };
+  },
+
+  methods: {
+    chooseFirstImage() {
+      this.componentValue = this.imageValues[0].url;
+    }
   },
 
   computed: {
@@ -55,10 +71,15 @@ export default {
       }
     },
 
-    childValue: {
+    componentValue: {
       handler(newValue, oldValue) {
         this.$emit("input", newValue);
       }
+    }
+  },
+  mounted() {
+    if (!this.componentValue) {
+      this.$refs.component.next();
     }
   }
 };

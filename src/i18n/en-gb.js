@@ -24,7 +24,8 @@ export default {
   errors: {
     notAMatch: "Field must match: {0}",
     invalidEmail: "This email address does not look valid",
-    required: "Required"
+    required: "Required",
+    arrayLength0: "arrayLength0"
   },
   success: "Action was successful"
 };

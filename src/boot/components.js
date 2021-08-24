@@ -5,15 +5,18 @@ import RmButtonSubmit from "src/components/generic/button/RmButtonSubmit.vue";
 
 import RmHashtagInput from "src/components/generic/form/typeInput/RmHashtagInput.vue";
 
-import RmInput from "src/components/generic/form/RmInput.vue";
-import RmImageCarousel from "src/components/generic/form/RmImageCarousel.vue";
 import RmForm from "src/components/generic/form/RmForm.vue";
+import RmImageCarousel from "src/components/generic/form/RmImageCarousel.vue";
+import RmInput from "src/components/generic/form/RmInput.vue";
 import RmRowButtons from "src/components/generic/form/RmRowButtons.vue";
 import RmUploader from "src/components/generic/form/RmUploader.vue";
 
+import RmCardSubtitle from "src/components/generic/card/RmCardSubtitle.vue";
+import RmCardTitle from "src/components/generic/card/RmCardTitle.vue";
+
 import RmDialog from "src/components/generic/dialog/RmDialog.vue";
-import RmDialogTitle from "src/components/generic/dialog/RmDialogTitle.vue";
 import RmDialogCard from "src/components/generic/dialog/RmDialogCard.vue";
+import RmDialogTitle from "src/components/generic/dialog/RmDialogTitle.vue";
 
 import RmCard from "src/components/generic/layout/RmCard.vue";
 import RmIconSticky from "src/components/generic/layout/RmIconSticky.vue";
@@ -35,6 +38,9 @@ export default async ({ Vue }) => {
   Vue.component("RmForm", RmForm);
   Vue.component("RmRowButtons", RmRowButtons);
   Vue.component("RmUploader", RmUploader);
+
+  Vue.component("RmCardTitle", RmCardTitle);
+  Vue.component("RmCardSubtitle", RmCardSubtitle);
 
   Vue.component("RmDialog", RmDialog);
   Vue.component("RmDialogCard", RmDialogCard);

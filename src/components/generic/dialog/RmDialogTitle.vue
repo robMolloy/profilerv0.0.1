@@ -1,24 +1,24 @@
 <template>
-  <div class="row items-center q-pa-sm bg-primary text-white">
-    <q-toolbar-title
-      class="text-h6"
-      style="text-transform:capitalize;"
-    >
-      <slot></slot>
-    </q-toolbar-title>
-    <q-space />
-    <q-btn
-      padding="none"
-      icon="close"
-      flat
-      dense
-      v-close-popup
-    />
-  </div>
+  <rm-card-title>
+    <slot></slot>
+
+    <template v-slot:right>
+      <q-btn
+        padding="none"
+        icon="close"
+        flat
+        dense
+        v-close-popup
+      />
+    </template>
+  </rm-card-title>
 </template>
 
 <script>
+import RmCardTitle from "../card/RmCardTitle.vue";
+
 export default {
-  name: "rm-dialog-title"
+  components: { RmCardTitle },
+  name: "rm-card-title"
 };
 </script>
