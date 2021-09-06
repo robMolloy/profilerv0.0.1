@@ -4,4 +4,4 @@ All the config and creds are in the repo.
 
 npm i
 
-npm start
+npm run dev
