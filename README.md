@@ -1,4 +1,4 @@
-# smackchat2 (smackchat2)
+# Profiler
 
 All the config and creds are in the repo.
 
