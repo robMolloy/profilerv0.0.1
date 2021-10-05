@@ -19,7 +19,7 @@ db.settings({ timestampsInSnapshots: true, enablePersistence: true });
 
 let storage = firebase.storage();
 
-window.db = db;
-window.firebaseAuth = firebaseAuth;
+// window.db = db;
+// window.firebaseAuth = firebaseAuth;
 
 export { firebaseAuth, db, storage };

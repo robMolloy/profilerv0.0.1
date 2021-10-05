@@ -1,33 +1,12 @@
 <template>
   <div>
-    <rm-uploader v-model="formData.image" />
-    <rm-image-carousel
-      v-model="formData.image"
-      :images="images"
-    />
+    <rm-image-carousel v-model="formData.image" :images="images" />
 
-    <rm-input
-      autofocus
-      label="Company"
-      v-model="formData.company"
-    />
-    <rm-input
-      label="Description"
-      v-model="formData.description"
-    />
-    <rm-input
-      label="Location"
-      v-model="formData.location"
-    />
-    <rm-input
-      label="Title"
-      v-model="formData.title"
-    />
-    <rm-hashtag-input
-      label="Hashtags"
-      v-model="formData.hashtags"
-    />
-
+    <rm-input autofocus label="Company" v-model="formData.company" />
+    <rm-input label="Description" v-model="formData.description" />
+    <rm-input label="Location" v-model="formData.location" />
+    <rm-input label="Title" v-model="formData.title" />
+    <rm-hashtag-input label="Hashtags" v-model="formData.hashtags" />
   </div>
 </template>
 
@@ -44,7 +23,7 @@ export default {
   },
   watch: {
     formData: {
-      handler: function(data) {
+      handler: function (data) {
         this.$emit("update", data);
       },
       deep: true

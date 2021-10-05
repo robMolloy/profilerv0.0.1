@@ -1,12 +1,5 @@
 <template>
   <rm-card class="q-my-md">
-    <rm-card-subtitle>
-      {{ label }}
-
-      <template v-slot:right>
-        asdasdds
-      </template>
-    </rm-card-subtitle>
     <q-carousel
       ref="component"
       v-model="componentValue"
@@ -18,7 +11,6 @@
       control-type="regular"
       control-color="white"
       control-text-color="primary"
-      class="shadow-1 text-black"
     >
       <q-carousel-slide
         v-for="(imageUrl,i) of imageUrlValues"
@@ -26,11 +18,18 @@
         :name="imageUrl"
         :img-src="imageUrl"
       />
+      <template v-slot:control>
+        <q-carousel-control position="top-right" :offset="[16, 18]">
+          <rm-uploader @fileAdded="onFileAdded" />
+        </q-carousel-control>
+      </template>
     </q-carousel>
   </rm-card>
 </template>
 
 <script>
+import firebaseStorage from "src/utils/firebase/firebaseStorageUtils";
+import { mapActions } from "vuex";
 export default {
   name: "PageImageCarousel",
 
@@ -49,6 +48,16 @@ export default {
   },
 
   methods: {
+    ...mapActions("images", { addImage: "add" }),
+
+    async onFileAdded(file) {
+      const url = await firebaseStorage.add(file)
+      console.log(/*LL*/ 55, 'url', url);
+
+
+      const response = await this.addImage({ url });
+      this.componentValue = url;
+    },
     chooseFirstImage() {
       this.componentValue = this.imageValues[0].url;
     }
@@ -74,6 +83,12 @@ export default {
     componentValue: {
       handler(newValue, oldValue) {
         this.$emit("input", newValue);
+      }
+    },
+
+    imageUrlValues: {
+      handler(newValue, oldValue) {
+        console.log(/*LL*/ 91, 'newValue', newValue);
       }
     }
   },

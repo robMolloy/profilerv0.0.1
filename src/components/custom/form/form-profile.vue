@@ -1,9 +1,6 @@
 <template>
   <q-form @submit="onSubmit">
-    <q-card-section
-      style="max-height:60vh;"
-      class="scroll"
-    >
+    <q-card-section style="max-height:60vh;" class="scroll">
       <form-content-profile @update="onUpdate" />
     </q-card-section>
     <rm-row-buttons>
@@ -30,7 +27,7 @@ export default {
     submitDisable: false
   }),
   methods: {
-    ...mapActions("profiles", ["add"]),
+    ...mapActions("profiles", { addImage: "add" }),
     showSubmitError(e) {
       this.$q.notify({
         position: "top",
@@ -51,7 +48,7 @@ export default {
       this.formData.imageUrl = await this.uploadFile(this.formData.image);
       delete this.formData.image;
 
-      const response = await this.add(this.formData)
+      const response = await this.addImage(this.formData)
         .catch(this.onSubmitError)
         .then(this.onSubmitSuccess);
 

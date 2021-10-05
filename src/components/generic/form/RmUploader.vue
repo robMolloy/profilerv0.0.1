@@ -1,38 +1,35 @@
 <template>
-  <q-field
-    full-width
-    no-error-icon
-    class="q-mb-sm"
-    :value="value"
-    :rules="[(val)=>!!val || 'no files']"
-  >
-    <q-uploader
-      ref="uploader"
-      flat
-      class="full-width"
-      @added="onUploaderChange"
-      @removed="onUploaderChange"
-      hide-upload-btn
-      bordered
+  <div>
+    <q-btn
+      @click="component.pickFiles()"
+      size="11px"
+      round
+      color="white"
+      text-color="primary"
+      icon="add"
     />
-  </q-field>
+    <q-uploader multiple v-show="false" ref="uploader" @added="onAdded" />
+  </div>
 </template>
 
 <script>
 export default {
   name: "rm-uploader",
-  data: () => ({ value: [] }),
-  methods: {
-    onUploaderChange(e) {
-      this.value = this.$refs.uploader.files[0];
-      this.$emit("input", this.value);
+  data: () => ({ value: [], component: null }),
+  computed: {
+    file() {
+      return this.component.files[0];
     }
+  },
+  methods: {
+    onAdded() {
+      this.$emit('fileAdded', this.file);
+    },
   },
   mounted() {
     this.value = this.$attrs.value;
+    this.component = this.$refs.uploader;
   }
 };
 </script>
 
-<style>
-</style>

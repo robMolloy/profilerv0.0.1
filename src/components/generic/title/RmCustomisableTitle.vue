@@ -1,9 +1,6 @@
 <template>
   <div class="row items-center q-pa-sm bg-primary text-white">
-    <q-toolbar-title
-      :class="titleClass"
-      :style="titleStyle"
-    >
+    <q-toolbar-title :class="titleClass" :style="titleStyle">
       <slot name="title"></slot>
     </q-toolbar-title>
     <q-space />
@@ -18,7 +15,7 @@ export default {
     titleType: {
       type: String,
       default: () => "title",
-      required: true
+      // required: true
       // validator: function(value) {
       //   return ["title", "warning", "danger"].indexOf(value) !== -1;
       // }

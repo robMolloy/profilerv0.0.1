@@ -2,8 +2,9 @@ import { db } from "src/boot/firebase";
 import { v4 as uuid } from "uuid";
 
 class firestoreUtilsDefault {
-  constructor(collectionName) {
-    this.collectionName = collectionName;
+  constructor({collectionName, template}) {
+    const collection = db.collection(collectionName)
+    Object.assign(this, { collection, collectionName, template });
   }
 
   async add(data) {
@@ -15,8 +16,7 @@ class firestoreUtilsDefault {
 
     // if success response = data
     return new Promise((res, rej) => {
-      db.collection(this.collectionName)
-        .doc(id)
+      this.collection.doc(id)
         .set(data)
         .then(() => res(data))
         .catch(e => rej({ ...e }));

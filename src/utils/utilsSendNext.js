@@ -1,4 +1,3 @@
-import router from "../router";
 
 export const sendNext = path => {
   window.sendToOnAuthenticationChange = path;
